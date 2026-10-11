@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0b0b12;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+
+#frame {
+  position: relative;
+  line-height: 0;
+  border: 6px solid #2a2317;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px #4a3b22, 0 12px 40px rgba(0, 0, 0, 0.7);
+  background: #000;
+}
+
+#game {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+  /* scaled up by JS to a multiple of 480x360 that fits the window */
+}
+
+#scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.16) 0px,
+    rgba(0, 0, 0, 0.16) 1px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  mix-blend-mode: multiply;
+  border-radius: 4px;
+}
+
+#hint {
+  margin-top: 10px;
+  color: #8a7a55;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  user-select: none;
+}

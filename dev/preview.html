@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TapperBoet — sprite preview</title>
+<style>
+  body { background: #222; color: #eee; font-family: monospace; padding: 16px; }
+  canvas { image-rendering: pixelated; background: #17141f; border: 2px solid #555; }
+  h3 { margin: 12px 0 4px; }
+</style>
+</head>
+<body>
+<h1>TapperBoet sprite sheet</h1>
+<h3>Characters (scaled 4x)</h3>
+<canvas id="chars"></canvas>
+<h3>Objects &amp; drinks (scaled 4x)</h3>
+<canvas id="objects"></canvas>
+<h3>Font (scaled 2x)</h3>
+<canvas id="font"></canvas>
+<script src="../js/sprites.js"></script>
+<script>
+function drawRow(canvasId, sprites, scale, gap, labelFn) {
+  const list = sprites;
+  const totalW = list.reduce((a, s) => a + s.width * scale + gap, gap);
+  const maxH = Math.max(...list.map(s => s.height)) * scale + 20;
+  const c = document.getElementById(canvasId);
+  c.width = totalW; c.height = maxH;
+  const g = c.getContext('2d');
+  let x = gap;
+  for (const s of list) {
+    g.imageSmoothingEnabled = false;
+    g.drawImage(s, x, 14, s.width * scale, s.height * scale);
+    if (labelFn) { g.fillStyle = '#888'; g.font = '9px monospace'; g.fillText(labelFn(s), x, 8); }
+    x += s.width * scale + gap;
+  }
+}
+drawRow('chars', [BARTENDER, BARTENDER_WALK, CUST_BOK, CUST_BOK_WALK, CUST_TAXI, CUST_TAXI_WALK, CUST_TOURIST, CUST_TOURIST_WALK, CUST_MINSTREL, CUST_MINSTREL_WALK, CUST_OUPA, CUST_OUPA_WALK], 4, 12,
+  s => '');
+drawRow('objects', [MUG_GLASS, MUG_EMPTY, MUG_FULL, TAP_SPRITE, GENERATOR, ICON_VUVU, ICON_BILTONG, STOOL, DRINK_ICONS.castle, DRINK_ICONS.blacklabel, DRINK_ICONS.savanna, DRINK_ICONS.klipdrift, WORS_RAW, WORS_COOKED, WORS_BURNT], 4, 12, s => '');
+// font sheet
+{
+  const chars = Object.keys(FONT);
+  const c = document.getElementById('font');
+  const cell = 8 * 2;
+  c.width = 16 * cell; c.height = Math.ceil(chars.length / 16) * cell;
+  const g = c.getContext('2d');
+  chars.forEach((ch, i) => {
+    const x = (i % 16) * cell, y = Math.floor(i / 16) * cell;
+    drawText(g, ch, x + 1, y + 1, 2, '#fff');
+    g.strokeStyle = '#333'; g.strokeRect(x + 0.5, y + 0.5, cell, cell);
+  });
+}
+</script>
+</body>
+</html>
