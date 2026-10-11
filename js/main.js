@@ -258,7 +258,6 @@ class Game {
     this.time += dt;
     if (this.graceT > 0) this.graceT -= dt;
     if (this.vuvuCd > 0) this.vuvuCd -= dt;
-    if (this.shake > 0) this.shake = Math.max(0, this.shake - dt * 14);
 
     /* --- input --- */
     const bar = this.bar;
@@ -441,6 +440,7 @@ class Game {
 
   /* ---------------- master update ---------------- */
   update(dt) {
+    if (this.shake > 0) this.shake = Math.max(0, this.shake - dt * 14);
     if (Input.justPressed('KeyM')) {
       const m = Sfx.toggleMute();
       this.floats.add(GEO.W / 2, 60, m ? 'STIL' : 'MOOI!', '#c9cdd6', 0.8);

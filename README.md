@@ -29,7 +29,7 @@ tapperboet/
 
 ## How to play
 
-You're the barman. Four bars, thirsty oke's walking in from the left.
+You're the barman. Four bars, thirsty okes en binnets walking in from the left.
 
 - **← → / A D** — slide along a bar
 - **↑ ↓ / W S** — change bars (only at the right end, by the taps)
@@ -60,7 +60,10 @@ You're the barman. Four bars, thirsty oke's walking in from the left.
 - **Braai bonus round** after every venue: flip the boerewors when the marker hits the
   green zone. Perfek = R50, lekker = R25, burnt = shame.
 - **Cast**: Bokke (thirsty), Taxi Man (fast and furious), Toeris (slow, rich, wears a hat),
-  Klopse (dances while waiting), Oupa (patient, walks with a stick).
+  Klopse (dances while waiting), Oupa (patient, walks with a stick), Aunty (Durbs legend,
+  tips like a boss), Binnet (quick temper, quick feet), Gogo (the most patient soul in Mzansi),
+  plus the local rugby faithful wherever you pour: Bulls (chugs his pint), Sharks (in for
+  a quick one), Lions (rowdy Ellis Park crew) and Stormers (patient, sips it slow).
 
 ## Dev notes
 

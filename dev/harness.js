@@ -266,6 +266,15 @@ if (g.state === 'clear') {
   resetDeaths();
   g = botPhase('BOT level 2 (120s)', 60 * 120);
   if (g._deaths && Object.keys(g._deaths).length) console.log('  deaths:', JSON.stringify(g._deaths));
+  // the bot may clear level 2 within the window — run its braai to get back to play
+  if (g.state === 'clear') {
+    press('Enter'); frames(1); release('Enter'); frames(3, trackState);
+    if (g.state !== 'braai') throw new Error('expected braai after level 2, got ' + g.state);
+    for (let k = 0; k < 6; k++) { frames(15 + k * 5); press('Space'); frames(2); release('Space'); trackState(); }
+    frames(130, trackState);
+    sanity('after level 2 braai');
+    console.log('level 2 braai done: state=' + g.state + ' level=' + g.levelIdx);
+  }
 }
 
 // 3. force-run the remaining levels to test the victory screen + loop restart

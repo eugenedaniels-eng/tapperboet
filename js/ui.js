@@ -198,7 +198,7 @@ function drawTitle(g, G) {
   drawText(g, 'TAPPERBOET', GEO.W / 2 + 3, 53 + bob + 3, 5, '#17141f', 'center');
   drawText(g, 'TAPPERBOET', GEO.W / 2, 53 + bob, 5, '#ffcf3f', 'center');
   drawText(g, 'TAPPERBOET', GEO.W / 2 - 1, 52 + bob, 5, '#007a4d', 'center');
-  drawText(g, 'GOOI DOPPIES, BOET!', GEO.W / 2, 95, 2, '#de3831', 'center');
+  drawText(g, 'GOOI DOPPE, BOET!', GEO.W / 2, 95, 2, '#de3831', 'center');
 
   // mini bar scene
   const barY = 240;
@@ -217,7 +217,10 @@ function drawTitle(g, G) {
   }
   drawSprite(g, BARTENDER, 392, barY - 22);
   drawSprite(g, CUST_BOK, 110, barY + 18);
+  drawSprite(g, CUST_BINNET, 145, barY + 18);
   drawSprite(g, CUST_OUPA, 180, barY + 18);
+  drawSprite(g, CUST_AUNTY, 250, barY + 18);
+  drawSprite(g, CUST_GOGO, 315, barY + 18);
 
   if (Math.sin(G.time * 4) > -0.3)
     drawText(g, 'DRUK ENTER OM TE BEGIN', GEO.W / 2, 300, 2, '#ffffff', 'center');
@@ -228,9 +231,9 @@ function drawTitle(g, G) {
 
 function drawRoundClear(g, G) {
   panel(g, 110, 120, 260, 110, '#ffcf3f');
-  drawText(g, 'RONDE KLAAR!', 240, 132, 2, '#ffcf3f', 'center');
+  drawText(g, 'RONDTE KLAAR!', 240, 132, 2, '#ffcf3f', 'center');
   drawText(g, G.venue().name, 240, 152, 1, '#c9cdd6', 'center');
-  drawText(g, 'LEKKA TIPS HIERDIE RONDE: R' + G.levelTips, 240, 168, 1, '#ffffff', 'center');
+  drawText(g, 'LEKKA TIPS HIERDIE RONDTE: R' + G.levelTips, 240, 168, 1, '#ffffff', 'center');
   drawText(g, 'TOTAAL: R' + G.score, 240, 182, 1, '#3ecf8e', 'center');
   if (Math.sin(G.time * 4) > -0.3)
     drawText(g, 'DRUK ENTER VIR DIE BRAAI!', 240, 205, 1, '#de3831', 'center');
